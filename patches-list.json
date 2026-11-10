@@ -1,7 +1,36 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "patches": [
+    {
+      "name": "Fix map via MicroG-RE",
+      "description": "Draws the live map through MicroG-RE's built-in MapLibre renderer instead of Google Play Services, so the map works without real Play Services. Requires MicroG-RE 7.0.0 or later (it added the Maps renderer in 7.0.0). Tiles come from OpenFreeMap, so they look different from Google Maps and there is no satellite view. Verified on NetMonster 5.3.1.",
+      "default": true,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "cz.mroczis.netmonster",
+          "name": "NetMonster",
+          "description": null,
+          "apkFileType": "APKM",
+          "appIconColor": "#009688",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "5.3.1",
+              "versionCodes": {
+                "ARM64_V8A": 286
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
     {
       "name": "Remove ads (APKS Installer)",
       "description": "Disables all ads by forcing the master ads flag MyApplication.m to false and making the ad initializer a no-op. Verified on APKS Installer 2.8-Google.",

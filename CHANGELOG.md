@@ -1,3 +1,9 @@
+## [1.2.0](https://github.com/sabbirdj/viper-patches/compare/v1.1.2...v1.2.0) (2026-11-10)
+
+### ✨ New Features
+
+* draw NetMonster map through MicroG-RE ([b73abca](https://github.com/sabbirdj/viper-patches/commit/b73abcaf9b849ec7d6c05eb2c793f09b1b890ba9))
+
 ## [1.1.2](https://github.com/sabbirdj/viper-patches/compare/v1.1.1...v1.1.2) (2026-11-10)
 
 ### 🐛 Bug Fixes
