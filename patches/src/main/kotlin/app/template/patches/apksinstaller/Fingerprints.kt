@@ -51,6 +51,8 @@ object ApksInstallerMyApplicationFingerprint : Fingerprint(
  *   invoke-static {v0, v1}, Lcom/google/android/gms/ads/MobileAds;->initialize(...)
  */
 object ApksInstallerAdsInitFingerprint : Fingerprint(
+    definingClass = "Ll2/N;",
+    name = "a",
     isStatic = false,
     returnType = "V",
     parameters = listOf(),
