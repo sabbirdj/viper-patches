@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/sabbirdj/viper-patches/compare/v1.0.1...v1.0.2) (2026-11-10)
+
+### 🐛 Bug Fixes
+
+* update repository metadata and trigger signed release ([8ab7bea](https://github.com/sabbirdj/viper-patches/commit/8ab7bea87d490c7e59f92670366eb00c46ce0daf))
+
 ## [1.0.1](https://github.com/sabbirdj/viper-patches/compare/v1.0.0...v1.0.1) (2026-11-10)
 
 ### 🐛 Bug Fixes
