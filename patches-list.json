@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "patches": [
     {
       "name": "Remove ads (APKS Installer)",
@@ -12,7 +12,7 @@
           "packageName": "com.inwepo.apkinstaller",
           "name": "APKS Installer",
           "description": null,
-          "apkFileType": "APKM",
+          "apkFileType": null,
           "appIconColor": "#4CAF50",
           "signatures": null,
           "formFactor": "MOBILE",
@@ -39,16 +39,14 @@
           "packageName": "com.mtv.sai",
           "name": "SAI",
           "description": null,
-          "apkFileType": "APKM",
+          "apkFileType": null,
           "appIconColor": "#1976D2",
           "signatures": null,
           "formFactor": "MOBILE",
           "targets": [
             {
               "version": "2.4.3",
-              "versionCodes": {
-                "ARM64_V8A": 49
-              },
+              "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
               "description": null
