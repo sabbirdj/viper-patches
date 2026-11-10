@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-10T16:29:59",
-  "description": "## [1.2.3](https://github.com/sabbirdj/viper-patches/compare/v1.2.2...v1.2.3) (2026-11-10)\n\n### 🐛 Bug Fixes\n\n* **netmonster:** escape $ in SharedPreferences$Editor inside Kotlin raw string ([cf8f15b](https://github.com/sabbirdj/viper-patches/commit/cf8f15b2e94e8f968c8d5ed7d1a7afe1f2280208))\n* **netmonster:** force MicroG-RE VTM map renderer (Mapbox .so is 4KB-aligned, fails on Android 16) ([b6fbf16](https://github.com/sabbirdj/viper-patches/commit/b6fbf16821c86e0171b66d3860233d3db84cf751))",
-  "download_url": "https://github.com/sabbirdj/viper-patches/releases/download/v1.2.3/patches-1.2.3.mpp",
+  "created_at": "2026-11-10T16:35:54",
+  "description": "## [1.2.4](https://github.com/sabbirdj/viper-patches/compare/v1.2.3...v1.2.4) (2026-11-10)\n\n### 🐛 Bug Fixes\n\n* **netmonster:** restore maps_dynamite retry-kill dropped in v1.2.3 ([1c7c018](https://github.com/sabbirdj/viper-patches/commit/1c7c0180a42ef376d26fa0ef51012b79a28bf14b))",
+  "download_url": "https://github.com/sabbirdj/viper-patches/releases/download/v1.2.4/patches-1.2.4.mpp",
   "signature_download_url": "",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "public_key": "cuROrKnLrUReZ0+MdIhMlATMBNn2CuSVkxhvjEkUFEU="
 }

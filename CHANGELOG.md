@@ -1,3 +1,9 @@
+## [1.2.4](https://github.com/sabbirdj/viper-patches/compare/v1.2.3...v1.2.4) (2026-11-10)
+
+### 🐛 Bug Fixes
+
+* **netmonster:** restore maps_dynamite retry-kill dropped in v1.2.3 ([1c7c018](https://github.com/sabbirdj/viper-patches/commit/1c7c0180a42ef376d26fa0ef51012b79a28bf14b))
+
 ## [1.2.3](https://github.com/sabbirdj/viper-patches/compare/v1.2.2...v1.2.3) (2026-11-10)
 
 ### 🐛 Bug Fixes
