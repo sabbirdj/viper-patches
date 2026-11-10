@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 @Suppress("unused")
 val netMonsterMapPatch = patch(
     name = "Fix map via MicroG-RE",
-    description = "Draws the live map through MicroG-RE's built-in MapLibre renderer instead of Google Play Services, so the map works without real Play Services. Requires MicroG-RE 7.0.0 or later (it added the Maps renderer in 7.0.0). Tiles come from OpenFreeMap, so they look different from Google Maps and there is no satellite view. Also neutralises the maps_dynamite retry, which MicroG's Dynamite loader claims and which would otherwise return a filtered Dynamite module context instead of the MicroG package context. Verified on NetMonster 5.3.1.",
+    description = "Draws the live map through MicroG-RE's built-in MapLibre renderer instead of Google Play Services, so the map works without real Play Services. Requires MicroG-RE 7.0.0 or later (it added the Maps renderer in 7.0.0). Tiles come from OpenFreeMap, so they look different from Google Maps and there is no satellite view. Also neutralises the maps_dynamite retry, which MicroG's Dynamite loader claims and which would otherwise return a filtered Dynamite module context instead of the MicroG package context. Forces the VTM renderer instead of the default Mapbox one, because Mapbox's native library is 4KB-aligned and fails to load on Android 16 devices, which enforce 16KB page sizes. Verified on NetMonster 5.3.1.",
     default = true
 ) {
     compatibleWith(COMPATIBILITY_NETMONSTER)
@@ -133,26 +133,49 @@ val netMonsterMapPatch = patch(
             it.method.replaceInstruction(constIndex, "const-string v$reg, \"app.revanced.android.gms\"")
         }
 
-        // 3) Kill the maps_dynamite retry in zq.acppncjbu (see
-        // above): the retry's module name is the const-string
-        // "com.google.android.gms.maps_dynamite", which MicroG-RE's
-        // Dynamite loader claims (version 1), so the retry can
-        // succeed and return a filtered DynamiteContext instead of
-        // ever reaching the redirected fallback. Replacing it with
-        // "com.google.android.gms.maps_core_dynamite" (version 0
-        // under MicroG) makes the retry fail like the first load,
-        // so execution always falls through to the fallback.
-        NetMonsterMapsFingerprint.let {
-            val instructions = it.method.implementation?.instructions
-                ?: error("zq.acppncjbu: no implementation")
-            val retryIndex = instructions.indexOfFirst { instr ->
-                instr.opcode == Opcode.CONST_STRING &&
-                    instr is ReferenceInstruction &&
-                    (instr.reference as? StringReference)?.string == "com.google.android.gms.maps_dynamite"
-            }
-            require(retryIndex >= 0) { "zq.acppncjbu: const-string maps_dynamite not found" }
-            val reg = (instructions[retryIndex] as OneRegisterInstruction).registerA
-            it.method.replaceInstruction(retryIndex, "const-string v$reg, \"com.google.android.gms.maps_core_dynamite\"")
+        // 4) FORCE THE VTM RENDERER (zq.bmpaywgdk, v1.2.3).
+        // v1.2.2 still failed on device, and the reason is now
+        // visible in the binaries, not the loader: MicroG-RE's
+        // DEFAULT renderer is Mapbox, whose native library
+        // libmapbox-gl.so is 4KB-aligned (LOAD segments Align
+        // 0x1000), while Android 16 enforces 16KB page sizes, so
+        // dlopen fails with "program alignment (4096) cannot be
+        // smaller than system page size (16384)" and the map stays
+        // black. The VTM renderer (libvtm-jni.so) is 16KB-aligned
+        // (Align 0x10000) and loads fine. MicroG's CreatorImpl
+        // picks the renderer from the CALLING app's default
+        // SharedPreferences — key "pref_map_engine", default
+        // "mapbox", "vtm" selects VtmCreator — via the framework
+        // android.preference.PreferenceManager, so writing that
+        // key from NetMonster lands in the exact file MicroG
+        // reads. This edit inserts the write at the very start of
+        // zq.bmpaywgdk, before the creator is built, using
+        // commit() (synchronous) so the value is on disk before
+        // CreatorImpl reads it. Registers v0-v2 are safe to use
+        // here: at method entry every local is dead, and the
+        // existing code assigns v0 and v1 (const-string) before
+        // ever reading them, so the insert cannot clobber a live
+        // value. Method entry is not a branch target, so the
+        // insert is safe. The write is idempotent and runs on
+        // every map init, so a stale cached Mapbox preference can
+        // never survive it. With real Play Services this is a
+        // no-op: the Play Services CreatorImpl never reads this
+        // preference. The map will look different from Google
+        // Maps (VTM vector tiles) — streets and towers draw, no
+        // satellite view.
+        NetMonsterMapsGateFingerprint.let {
+            it.method.addInstructions(0, """
+                invoke-static {p0}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+                move-result-object v0
+                invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+                move-result-object v1
+                const-string v0, "pref_map_engine"
+                const-string v2, "vtm"
+                invoke-interface {v1, v0, v2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+                move-result-object v1
+                invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->commit()Z
+                move-result v0
+            """.trimIndent())
         }
     }
 }
