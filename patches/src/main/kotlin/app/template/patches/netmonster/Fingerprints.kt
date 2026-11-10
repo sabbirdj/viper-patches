@@ -105,6 +105,47 @@ object NetMonsterCardFingerprint : Fingerprint(
 )
 
 /**
+ * zq.acppncjbu — the Google Maps module-context loader. The Maps SDK
+ * ships only a thin client; the renderer lives in Play Services and is
+ * loaded as a Dynamite module (maps_legacy_dynamite /
+ * maps_core_dynamite / maps_dynamite) via Loautvs.zeulwnh
+ * (DynamiteModule.load). When that fails — microG has no Maps Dynamite
+ * module — the method falls back to
+ *   createPackageContext("com.google.android.gms", 3)
+ * and returns that package's Context, from which the caller loads
+ * com.google.android.gms.maps.internal.CreatorImpl.
+ *
+ * MicroG-RE is NOT installed as com.google.android.gms — its package
+ * is app.revanced.android.gms — so the fallback throws
+ * NameNotFoundException, the method returns null, and the MapView
+ * renders black. MicroG-RE 7.0.0+ ships its own MapLibre renderer
+ * (CreatorImpl, OpenFreeMap tiles) precisely for this redirect, so
+ * the patch changes the fallback package string to
+ * "app.revanced.android.gms". The caller then loads CreatorImpl out
+ * of MicroG-RE's classloader and the map draws. Returns null (same
+ * as before) when MicroG-RE is absent, so the patch is a no-op
+ * without it — never a new failure.
+ *
+ * The fingerprint pins definingClass Lzq; + name acppncjbu + the
+ * (Context, Laefjnw) signature, and the createPackageContext call
+ * confirms it is the module-context loader (not another zq method).
+ */
+object NetMonsterMapsFingerprint : Fingerprint(
+    definingClass = "Lzq;",
+    name = "acppncjbu",
+    returnType = "Landroid/content/Context;",
+    parameters = listOf("Landroid/content/Context;", "Laefjnw;"),
+    filters = listOf(
+        methodCall(
+            definingClass = "Landroid/content/Context;",
+            name = "createPackageContext",
+            parameters = listOf("Ljava/lang/String;", "I"),
+            returnType = "Landroid/content/Context;",
+        ),
+    )
+)
+
+/**
  * muov.emit — computes the premium expiry date (cpysz.bmpaywgdk). It
  * collects the expiry dates of active subscriptions, takes the max with
  * Lqqlbfq.pzkxkxo (max-or-null), and emits it via Ltiedq.emit. With no
