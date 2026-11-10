@@ -1,3 +1,9 @@
+## [1.1.2](https://github.com/sabbirdj/viper-patches/compare/v1.1.1...v1.1.2) (2026-11-10)
+
+### 🐛 Bug Fixes
+
+* set NetMonster premium expiry to 2099 ([f7d649a](https://github.com/sabbirdj/viper-patches/commit/f7d649a919a73761aa5a96688e0936a4210ef7c5))
+
 ## [1.1.1](https://github.com/sabbirdj/viper-patches/compare/v1.1.0...v1.1.1) (2026-11-10)
 
 ### 🐛 Bug Fixes
