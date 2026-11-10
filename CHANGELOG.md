@@ -1,3 +1,9 @@
+## [1.0.6](https://github.com/sabbirdj/viper-patches/compare/v1.0.5...v1.0.6) (2026-11-10)
+
+### 🐛 Bug Fixes
+
+* use addInstructionsWithLabels so branch targets are not skipped ([8c03ffc](https://github.com/sabbirdj/viper-patches/commit/8c03ffc7cf0c1d3cf62f968d1eb4e349f47c9073))
+
 ## [1.0.5](https://github.com/sabbirdj/viper-patches/compare/v1.0.4...v1.0.5) (2026-11-10)
 
 ### 🐛 Bug Fixes
