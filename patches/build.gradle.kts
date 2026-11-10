@@ -4,10 +4,10 @@ patches {
     about {
         name = "Viper Patches"
         description = "Patches for apps I like: SAI Premium unlock and APKS Installer ad removal."
-        source = "git@github.com:viper/morphe-patches.git"
-        author = "Viper"
-        contact = "na"
-        website = "na"
+        source = "https://github.com/sabbirdj/viper-patches.git"
+        author = "sabbirdj"
+        contact = "https://github.com/sabbirdj/viper-patches"
+        website = "https://github.com/sabbirdj/viper-patches"
         license = "GPLv3"
     }
 }
