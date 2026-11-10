@@ -12,20 +12,13 @@
           "packageName": "com.inwepo.apkinstaller",
           "name": "APKS Installer",
           "description": null,
-          "apkFileType": null,
+          "apkFileType": "APKM",
           "appIconColor": "#4CAF50",
           "signatures": null,
           "formFactor": "MOBILE",
           "targets": [
             {
               "version": "2.8-Google",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": null,
               "versionCodes": null,
               "isExperimental": false,
               "minSdk": null,
@@ -46,21 +39,16 @@
           "packageName": "com.mtv.sai",
           "name": "SAI",
           "description": null,
-          "apkFileType": null,
+          "apkFileType": "APKM",
           "appIconColor": "#1976D2",
           "signatures": null,
           "formFactor": "MOBILE",
           "targets": [
             {
               "version": "2.4.3",
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            },
-            {
-              "version": null,
-              "versionCodes": null,
+              "versionCodes": {
+                "ARM64_V8A": 49
+              },
               "isExperimental": false,
               "minSdk": null,
               "description": null
