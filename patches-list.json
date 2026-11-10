@@ -1,10 +1,10 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "patches": [
     {
       "name": "Fix map via MicroG-RE",
-      "description": "Draws the live map through MicroG-RE's built-in MapLibre renderer instead of Google Play Services, so the map works without real Play Services. Requires MicroG-RE 7.0.0 or later (it added the Maps renderer in 7.0.0). Tiles come from OpenFreeMap, so they look different from Google Maps and there is no satellite view. Also neutralises the maps_dynamite retry, which MicroG's Dynamite loader claims and which would otherwise return a filtered Dynamite module context instead of the MicroG package context. Verified on NetMonster 5.3.1.",
+      "description": "Draws the live map through MicroG-RE's built-in MapLibre renderer instead of Google Play Services, so the map works without real Play Services. Requires MicroG-RE 7.0.0 or later (it added the Maps renderer in 7.0.0). Tiles come from OpenFreeMap, so they look different from Google Maps and there is no satellite view. Also neutralises the maps_dynamite retry, which MicroG's Dynamite loader claims and which would otherwise return a filtered Dynamite module context instead of the MicroG package context. Forces the VTM renderer instead of the default Mapbox one, because Mapbox's native library is 4KB-aligned and fails to load on Android 16 devices, which enforce 16KB page sizes. Verified on NetMonster 5.3.1.",
       "default": true,
       "category": null,
       "compatiblePackages": [

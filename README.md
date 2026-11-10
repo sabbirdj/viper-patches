@@ -18,7 +18,7 @@ Click the button below, or manually add this repo url to Morphe Manager: https:/
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.2.2](https://github.com/sabbirdj/viper-patches/releases/tag/v1.2.2)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;4 patches total
+> **[v1.2.3](https://github.com/sabbirdj/viper-patches/releases/tag/v1.2.3)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;4 patches total
 <details open>
 <summary>📦 NetMonster&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
@@ -32,7 +32,7 @@ Click the button below, or manually add this repo url to Morphe Manager: https:/
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Fix map via MicroG-RE](#fix-map-via-microg-re) | Draws the live map through MicroG-RE's built-in MapLibre renderer instead of Google Play Services, so the map works without real Play Services. Requires MicroG-RE 7.0.0 or later (it added the Maps renderer in 7.0.0). Tiles come from OpenFreeMap, so they look different from Google Maps and there is no satellite view. Also neutralises the maps_dynamite retry, which MicroG's Dynamite loader claims and which would otherwise return a filtered Dynamite module context instead of the MicroG package context. Verified on NetMonster 5.3.1. |  |
+| [Fix map via MicroG-RE](#fix-map-via-microg-re) | Draws the live map through MicroG-RE's built-in MapLibre renderer instead of Google Play Services, so the map works without real Play Services. Requires MicroG-RE 7.0.0 or later (it added the Maps renderer in 7.0.0). Tiles come from OpenFreeMap, so they look different from Google Maps and there is no satellite view. Also neutralises the maps_dynamite retry, which MicroG's Dynamite loader claims and which would otherwise return a filtered Dynamite module context instead of the MicroG package context. Forces the VTM renderer instead of the default Mapbox one, because Mapbox's native library is 4KB-aligned and fails to load on Android 16 devices, which enforce 16KB page sizes. Verified on NetMonster 5.3.1. |  |
 | [Unlock NetMonster Premium](#unlock-netmonster-premium) | Activates NetMonster Premium and removes ads by forcing the local Adapty subscription checks to true and giving the premium card a real expiry date. Verified on NetMonster 5.3.1. |  |
 
 </details>

@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/sabbirdj/viper-patches/compare/v1.2.2...v1.2.3) (2026-11-10)
+
+### 🐛 Bug Fixes
+
+* **netmonster:** escape $ in SharedPreferences$Editor inside Kotlin raw string ([cf8f15b](https://github.com/sabbirdj/viper-patches/commit/cf8f15b2e94e8f968c8d5ed7d1a7afe1f2280208))
+* **netmonster:** force MicroG-RE VTM map renderer (Mapbox .so is 4KB-aligned, fails on Android 16) ([b6fbf16](https://github.com/sabbirdj/viper-patches/commit/b6fbf16821c86e0171b66d3860233d3db84cf751))
+
 ## [1.2.2](https://github.com/sabbirdj/viper-patches/compare/v1.2.1...v1.2.2) (2026-11-10)
 
 ### 🐛 Bug Fixes
