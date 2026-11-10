@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "patches": [
     {
       "name": "Remove ads (APKS Installer)",
@@ -31,7 +31,7 @@
     },
     {
       "name": "Unlock NetMonster Premium",
-      "description": "Activates NetMonster Premium and removes ads by forcing the local Adapty subscription check to true. Verified on NetMonster 5.3.1.",
+      "description": "Activates NetMonster Premium and removes ads by forcing the local Adapty subscription checks to true and giving the premium card a real expiry date. Verified on NetMonster 5.3.1.",
       "default": true,
       "category": null,
       "compatiblePackages": [

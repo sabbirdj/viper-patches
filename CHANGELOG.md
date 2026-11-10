@@ -1,3 +1,9 @@
+## [1.1.1](https://github.com/sabbirdj/viper-patches/compare/v1.1.0...v1.1.1) (2026-11-10)
+
+### 🐛 Bug Fixes
+
+* force NetMonster premium card boolean and expiry (hide PURCHASE) ([db1904d](https://github.com/sabbirdj/viper-patches/commit/db1904db13ca2ddecb485ac33e89132181165ef4))
+
 ## [1.1.0](https://github.com/sabbirdj/viper-patches/compare/v1.0.8...v1.1.0) (2026-11-10)
 
 ### ✨ New Features
