@@ -1,3 +1,9 @@
+## [1.2.5](https://github.com/sabbirdj/viper-patches/compare/v1.2.4...v1.2.5) (2026-11-10)
+
+### 🐛 Bug Fixes
+
+* remove NetMonster patches ([3aa89e2](https://github.com/sabbirdj/viper-patches/commit/3aa89e20e8a2ea9b739d5a9ed5f8c84fc927e390))
+
 ## [1.2.4](https://github.com/sabbirdj/viper-patches/compare/v1.2.3...v1.2.4) (2026-11-10)
 
 ### 🐛 Bug Fixes
