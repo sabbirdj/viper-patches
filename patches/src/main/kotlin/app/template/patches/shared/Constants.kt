@@ -36,21 +36,4 @@ object Constants {
             )
         )
     )
-
-    val COMPATIBILITY_NETMONSTER = Compatibility(
-        name = "NetMonster",
-        packageName = "cz.mroczis.netmonster",
-        // Distributed as a split bundle (.xapk / .apkm).
-        apkFileType = ApkFileType.APKM,
-        appIconColor = 0x009688,
-        targets = listOf(
-            // Version the premium patch was developed and verified against.
-            AppTarget(
-                version = "5.3.1",
-                versionCodes = mapOf(
-                    SupportedAbi.ARM64_V8A to 286
-                )
-            )
-        )
-    )
 }
