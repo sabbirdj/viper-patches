@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-10T08:20:01",
-  "description": "## [1.2.0](https://github.com/sabbirdj/viper-patches/compare/v1.1.2...v1.2.0) (2026-11-10)\n\n### ✨ New Features\n\n* draw NetMonster map through MicroG-RE ([b73abca](https://github.com/sabbirdj/viper-patches/commit/b73abcaf9b849ec7d6c05eb2c793f09b1b890ba9))",
-  "download_url": "https://github.com/sabbirdj/viper-patches/releases/download/v1.2.0/patches-1.2.0.mpp",
+  "created_at": "2026-11-10T12:22:28",
+  "description": "## [1.2.1](https://github.com/sabbirdj/viper-patches/compare/v1.2.0...v1.2.1) (2026-11-10)\n\n### 🐛 Bug Fixes\n\n* bypass Play Services gate so NetMonster map reaches MicroG-RE ([7cb18ad](https://github.com/sabbirdj/viper-patches/commit/7cb18ade349defc893258492fd9def9c23130228))",
+  "download_url": "https://github.com/sabbirdj/viper-patches/releases/download/v1.2.1/patches-1.2.1.mpp",
   "signature_download_url": "",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "public_key": "cuROrKnLrUReZ0+MdIhMlATMBNn2CuSVkxhvjEkUFEU="
 }

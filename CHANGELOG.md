@@ -1,3 +1,9 @@
+## [1.2.1](https://github.com/sabbirdj/viper-patches/compare/v1.2.0...v1.2.1) (2026-11-10)
+
+### 🐛 Bug Fixes
+
+* bypass Play Services gate so NetMonster map reaches MicroG-RE ([7cb18ad](https://github.com/sabbirdj/viper-patches/commit/7cb18ade349defc893258492fd9def9c23130228))
+
 ## [1.2.0](https://github.com/sabbirdj/viper-patches/compare/v1.1.2...v1.2.0) (2026-11-10)
 
 ### ✨ New Features
