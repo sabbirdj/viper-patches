@@ -14,6 +14,11 @@ import app.morphe.patcher.string
  * fingerprints match on the local boolean derivation, not on the server data.
  * The boolean register forced by each patch (v1 / v1 / v3) is correct for
  * SAI 2.4.3; the patches are pinned to that version in Constants.
+ *
+ * Every fingerprint pins its defining class and method name. Without that,
+ * the patcher searches every method in the app, and the generic single-letter
+ * names (ck0, fk0, dk0, h, invoke) can match the wrong method. Pinning makes
+ * each fingerprint land on exactly the method it was written for.
  */
 
 /**
@@ -28,6 +33,8 @@ import app.morphe.patcher.string
  *   invoke-direct {p1, v1}, Las6;-><init>(Z)V
  */
 object SaiPremiumCk0Fingerprint : Fingerprint(
+    definingClass = "Lck0;",
+    name = "invoke",
     returnType = "Ljava/lang/Object;",
     parameters = listOf("Ljava/lang/Object;"),
     filters = listOf(
@@ -53,8 +60,10 @@ object SaiPremiumCk0Fingerprint : Fingerprint(
  *   invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
  */
 object SaiPremiumFk0Fingerprint : Fingerprint(
+    definingClass = "Lfk0;",
+    name = "h",
     returnType = "V",
-    parameters = listOf("L"),
+    parameters = listOf("Lcm1;"),
     filters = listOf(
         string("SAI Premium"),
         methodCall(
@@ -80,6 +89,10 @@ object SaiPremiumFk0Fingerprint : Fingerprint(
  *   invoke-virtual {p0}, Ljava/util/LinkedHashMap;->keySet()Ljava/util/Set;
  */
 object SaiPremiumDk0Fingerprint : Fingerprint(
+    definingClass = "Ldk0;",
+    name = "invoke",
+    returnType = "Ljava/lang/Object;",
+    parameters = listOf("Ljava/lang/Object;", "Ljava/lang/Object;"),
     filters = listOf(
         string("SAI Premium"),
         methodCall(
