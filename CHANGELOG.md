@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/sabbirdj/viper-patches/compare/v1.0.6...v1.0.7) (2026-11-10)
+
+### 🐛 Bug Fixes
+
+* access instructions via method.implementation (MutableMethod has no instructions property) ([ea95737](https://github.com/sabbirdj/viper-patches/commit/ea957375592bbf0fd8b65deaec55b603639b4025))
+* use replaceInstruction for fk0/dk0 so the forced boolean actually runs ([a3e6253](https://github.com/sabbirdj/viper-patches/commit/a3e6253c010afc7e32186cb9abbcd31fa12b5eb5))
+
 ## [1.0.6](https://github.com/sabbirdj/viper-patches/compare/v1.0.5...v1.0.6) (2026-11-10)
 
 ### 🐛 Bug Fixes
