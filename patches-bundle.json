@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-10T05:01:57",
-  "description": "## 1.0.0 (2026-11-10)\n\n### ✨ New Features\n\n* fix patch compilation and build configuration ([25bed97](https://github.com/sabbirdj/viper-patches/commit/25bed97221379a6ad17012b62a62405f51391b70))\n\n### 🐛 Bug Fixes\n\n* make gradlew executable ([0821786](https://github.com/sabbirdj/viper-patches/commit/08217860202eb4dae02974996a8c0a98b231a01c))\n* remove dummy GitHub credentials and add mavenLocal repo ([1992b59](https://github.com/sabbirdj/viper-patches/commit/1992b59f2b555b6e2b7e69b2d81124774da784bd))\n* use 0xRRGGBB icon colors (patcher rejects ARGB) ([2c10cb8](https://github.com/sabbirdj/viper-patches/commit/2c10cb8411a4c8b4c1b407130879b74b64f439da))\n* use Int color values in Compatibility ([f0784fb](https://github.com/sabbirdj/viper-patches/commit/f0784fbe67e3467ab33ea73f2ec0874f72259cc5))",
-  "download_url": "https://github.com/sabbirdj/viper-patches/releases/download/v1.0.0/patches-1.0.0.mpp",
+  "created_at": "2026-11-10T05:23:58",
+  "description": "## [1.0.1](https://github.com/sabbirdj/viper-patches/compare/v1.0.0...v1.0.1) (2026-11-10)\n\n### 🐛 Bug Fixes\n\n* relax apkFileType and version targets for SAI and APKS Installer ([989e34a](https://github.com/sabbirdj/viper-patches/commit/989e34ae5d3c471aa64d18a0d9abd17f43f57bff))",
+  "download_url": "https://github.com/sabbirdj/viper-patches/releases/download/v1.0.1/patches-1.0.1.mpp",
   "signature_download_url": "",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "public_key": "cuROrKnLrUReZ0+MdIhMlATMBNn2CuSVkxhvjEkUFEU="
 }
