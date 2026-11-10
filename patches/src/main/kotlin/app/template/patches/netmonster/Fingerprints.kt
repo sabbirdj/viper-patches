@@ -146,6 +146,50 @@ object NetMonsterMapsFingerprint : Fingerprint(
 )
 
 /**
+ * zq.bmpaywgdk — the Maps renderer entry point, and the FIRST gate.
+ * Before it ever reaches acppncjbu (the module-context loader), it
+ * runs Lrqatw.zeulwnh (GooglePlayServicesUtil
+ * .isGooglePlayServicesAvailable) with the required version 0xcc77c0
+ * and throws GooglePlayServicesNotAvailableException when that
+ * returns non-zero:
+ *   const v0, 0xcc77c0
+ *   invoke-static {p0, v0}, Lrqatw;->zeulwnh(Context, I)I
+ *   move-result v0
+ *   if-nez v0, :cond_3        (non-zero -> throw)
+ *   const/4 v0, 0x0
+ *   invoke-static {p0, v0}, Lzq;->zeulwnh(Context, Laefjnw;)Lae0;
+ *
+ * Lrqatw.zeulwnh looks for the literal package
+ * "com.google.android.gms", which MicroG-RE does not claim (it is
+ * app.revanced.android.gms). So on a de-Googled device with only
+ * MicroG-RE, the gate throws BEFORE acppncjbu is ever reached —
+ * which is why v1.2.0 (redirect only) did nothing: the redirect
+ * never ran. The patch inserts `const/4 v0, 0x0` before the if-nez
+ * so it never branches to the throw and execution proceeds to
+ * load the renderer (which acppncjbu then redirects to MicroG-RE).
+ * The if-nez is NOT a branch target (reached only by fall-through
+ * from move-result), so inserting before it is safe.
+ *
+ * The fingerprint pins definingClass Lzq; + name bmpaywgdk + the
+ * (Context) -> Lae0; signature, and the Lrqatw.zeulwnh call
+ * confirms it is the gate method.
+ */
+object NetMonsterMapsGateFingerprint : Fingerprint(
+    definingClass = "Lzq;",
+    name = "bmpaywgdk",
+    returnType = "Lae0;",
+    parameters = listOf("Landroid/content/Context;"),
+    filters = listOf(
+        methodCall(
+            definingClass = "Lrqatw;",
+            name = "zeulwnh",
+            parameters = listOf("Landroid/content/Context;", "I"),
+            returnType = "I",
+        ),
+    )
+)
+
+/**
  * muov.emit — computes the premium expiry date (cpysz.bmpaywgdk). It
  * collects the expiry dates of active subscriptions, takes the max with
  * Lqqlbfq.pzkxkxo (max-or-null), and emits it via Ltiedq.emit. With no
