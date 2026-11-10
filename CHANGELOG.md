@@ -1,3 +1,9 @@
+## [1.0.4](https://github.com/sabbirdj/viper-patches/compare/v1.0.3...v1.0.4) (2026-11-10)
+
+### 🐛 Bug Fixes
+
+* remove strict apkFileType and ABI restrictions from SAI and APKS Installer ([ceedbaa](https://github.com/sabbirdj/viper-patches/commit/ceedbaa337bff7fc95081a477b80b23319dcbd58))
+
 ## [1.0.3](https://github.com/sabbirdj/viper-patches/compare/v1.0.2...v1.0.3) (2026-11-10)
 
 ### 🐛 Bug Fixes
