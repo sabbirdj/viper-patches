@@ -1,3 +1,9 @@
+## [1.0.3](https://github.com/sabbirdj/viper-patches/compare/v1.0.2...v1.0.3) (2026-11-10)
+
+### 🐛 Bug Fixes
+
+* restore original target compatibility rules ([aa1b615](https://github.com/sabbirdj/viper-patches/commit/aa1b6158de8bd2f05e4c40e46ff13968fe81514a))
+
 ## [1.0.2](https://github.com/sabbirdj/viper-patches/compare/v1.0.1...v1.0.2) (2026-11-10)
 
 ### 🐛 Bug Fixes
