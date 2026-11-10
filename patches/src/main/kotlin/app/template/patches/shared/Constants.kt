@@ -11,7 +11,7 @@ object Constants {
         packageName = "com.mtv.sai",
         // SAI is distributed as a split bundle (.apks).
         apkFileType = ApkFileType.APKM,
-        appIconColor = 0xFF1976D2.toInt(),
+        appIconColor = 0x1976D2,
         targets = listOf(
             // Version the premium patch was developed and verified against.
             AppTarget(
@@ -28,7 +28,7 @@ object Constants {
         packageName = "com.inwepo.apkinstaller",
         // Distributed as a split bundle (.apks).
         apkFileType = ApkFileType.APKM,
-        appIconColor = 0xFF4CAF50.toInt(),
+        appIconColor = 0x4CAF50,
         targets = listOf(
             // Version the ad-removal patch was developed and verified against.
             AppTarget(
