@@ -48,8 +48,11 @@ val saiPremiumPatch = patch(
         // Replace the init `const/4 v1, 0x0` with `const/4 v1, 0x1`.
         // v1 is only the entitlement boolean in this method (not a loop counter),
         // so starting it at 1 makes valueOf wrap TRUE on every path.
+        // (MutableMethod has no `instructions` property; they live on its implementation.)
         SaiPremiumFk0Fingerprint.let {
-            val constIndex = it.method.instructions.indexOfFirst { instr ->
+            val instructions = it.method.implementation?.instructions
+                ?: error("fk0.h: no implementation")
+            val constIndex = instructions.indexOfFirst { instr ->
                 instr.opcode == Opcode.CONST_4 &&
                     instr is OneRegisterInstruction && instr.registerA == 1 &&
                     instr is NarrowLiteralInstruction && instr.narrowLiteral == 0
@@ -63,7 +66,9 @@ val saiPremiumPatch = patch(
         // `const/4 v3, 0x1`. The premium path already sets v3=1, so after this
         // both paths leave v3=1 and the `if-eqz v3` after the h call takes premium.
         SaiPremiumDk0Fingerprint.let {
-            val constIndex = it.method.instructions.indexOfFirst { instr ->
+            val instructions = it.method.implementation?.instructions
+                ?: error("dk0.invoke: no implementation")
+            val constIndex = instructions.indexOfFirst { instr ->
                 instr.opcode == Opcode.CONST_4 &&
                     instr is OneRegisterInstruction && instr.registerA == 3 &&
                     instr is NarrowLiteralInstruction && instr.narrowLiteral == 0
