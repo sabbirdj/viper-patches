@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/sabbirdj/viper-patches/compare/v1.0.8...v1.1.0) (2026-11-10)
+
+### ✨ New Features
+
+* add NetMonster Premium patch (5.3.1) ([4100af2](https://github.com/sabbirdj/viper-patches/commit/4100af207417df95117ed667adba4baf78a61adf))
+
 ## [1.0.8](https://github.com/sabbirdj/viper-patches/compare/v1.0.7...v1.0.8) (2026-11-10)
 
 ### 🐛 Bug Fixes

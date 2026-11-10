@@ -18,7 +18,7 @@ Click the button below, or manually add this repo url to Morphe Manager: https:/
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.0.8](https://github.com/sabbirdj/viper-patches/releases/tag/v1.0.8)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;2 patches total
+> **[v1.1.0](https://github.com/sabbirdj/viper-patches/releases/tag/v1.1.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;3 patches total
 <details open>
 <summary>📦 APKS Installer&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
@@ -33,6 +33,23 @@ Click the button below, or manually add this repo url to Morphe Manager: https:/
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Remove ads (APKS Installer)](#remove-ads-apks-installer) | Disables all ads by forcing the master ads flag MyApplication.m to false and making the ad initializer a no-op. Verified on APKS Installer 2.8-Google. |  |
+
+</details>
+
+<details open>
+<summary>📦 NetMonster&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**Package name:** `cz.mroczis.netmonster`
+
+**🎯 Supported versions:**
+
+| 5.3.1 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Unlock NetMonster Premium](#unlock-netmonster-premium) | Activates NetMonster Premium and removes ads by forcing the local Adapty subscription check to true. Verified on NetMonster 5.3.1. |  |
 
 </details>
 

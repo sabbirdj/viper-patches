@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-10T06:35:52",
-  "description": "## [1.0.8](https://github.com/sabbirdj/viper-patches/compare/v1.0.7...v1.0.8) (2026-11-10)\n\n### 🐛 Bug Fixes\n\n* use replaceInstruction for APKS Installer ads (same fix as SAI v1.0.7) ([e4dfa82](https://github.com/sabbirdj/viper-patches/commit/e4dfa82768e5c107f658b2b9520833f442b4dcc3))",
-  "download_url": "https://github.com/sabbirdj/viper-patches/releases/download/v1.0.8/patches-1.0.8.mpp",
+  "created_at": "2026-11-10T07:11:29",
+  "description": "## [1.1.0](https://github.com/sabbirdj/viper-patches/compare/v1.0.8...v1.1.0) (2026-11-10)\n\n### ✨ New Features\n\n* add NetMonster Premium patch (5.3.1) ([4100af2](https://github.com/sabbirdj/viper-patches/commit/4100af207417df95117ed667adba4baf78a61adf))",
+  "download_url": "https://github.com/sabbirdj/viper-patches/releases/download/v1.1.0/patches-1.1.0.mpp",
   "signature_download_url": "",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "public_key": "cuROrKnLrUReZ0+MdIhMlATMBNn2CuSVkxhvjEkUFEU="
 }

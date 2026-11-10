@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "patches": [
     {
       "name": "Remove ads (APKS Installer)",
@@ -12,7 +12,7 @@
           "packageName": "com.inwepo.apkinstaller",
           "name": "APKS Installer",
           "description": null,
-          "apkFileType": null,
+          "apkFileType": "APKM",
           "appIconColor": "#4CAF50",
           "signatures": null,
           "formFactor": "MOBILE",
@@ -20,6 +20,35 @@
             {
               "version": "2.8-Google",
               "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock NetMonster Premium",
+      "description": "Activates NetMonster Premium and removes ads by forcing the local Adapty subscription check to true. Verified on NetMonster 5.3.1.",
+      "default": true,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "cz.mroczis.netmonster",
+          "name": "NetMonster",
+          "description": null,
+          "apkFileType": "APKM",
+          "appIconColor": "#009688",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "5.3.1",
+              "versionCodes": {
+                "ARM64_V8A": 286
+              },
               "isExperimental": false,
               "minSdk": null,
               "description": null
@@ -39,14 +68,16 @@
           "packageName": "com.mtv.sai",
           "name": "SAI",
           "description": null,
-          "apkFileType": null,
+          "apkFileType": "APKM",
           "appIconColor": "#1976D2",
           "signatures": null,
           "formFactor": "MOBILE",
           "targets": [
             {
               "version": "2.4.3",
-              "versionCodes": null,
+              "versionCodes": {
+                "ARM64_V8A": 49
+              },
               "isExperimental": false,
               "minSdk": null,
               "description": null
