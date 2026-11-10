@@ -1,3 +1,9 @@
+## [1.0.1-dev.1](https://github.com/sabbirdj/viper-patches/compare/v1.0.0...v1.0.1-dev.1) (2026-11-10)
+
+### 🐛 Bug Fixes
+
+* relax apkFileType and version targets for SAI and APKS Installer ([989e34a](https://github.com/sabbirdj/viper-patches/commit/989e34ae5d3c471aa64d18a0d9abd17f43f57bff))
+
 ## 1.0.0 (2026-11-10)
 
 ### ✨ New Features
