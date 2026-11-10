@@ -133,6 +133,28 @@ val netMonsterMapPatch = patch(
             it.method.replaceInstruction(constIndex, "const-string v$reg, \"app.revanced.android.gms\"")
         }
 
+        // 3) Kill the maps_dynamite retry in zq.acppncjbu (see
+        // above): the retry's module name is the const-string
+        // "com.google.android.gms.maps_dynamite", which MicroG-RE's
+        // Dynamite loader claims (version 1), so the retry can
+        // succeed and return a filtered DynamiteContext instead of
+        // ever reaching the redirected fallback. Replacing it with
+        // "com.google.android.gms.maps_core_dynamite" (version 0
+        // under MicroG) makes the retry fail like the first load,
+        // so execution always falls through to the fallback.
+        NetMonsterMapsFingerprint.let {
+            val instructions = it.method.implementation?.instructions
+                ?: error("zq.acppncjbu: no implementation")
+            val retryIndex = instructions.indexOfFirst { instr ->
+                instr.opcode == Opcode.CONST_STRING &&
+                    instr is ReferenceInstruction &&
+                    (instr.reference as? StringReference)?.string == "com.google.android.gms.maps_dynamite"
+            }
+            require(retryIndex >= 0) { "zq.acppncjbu: const-string maps_dynamite not found" }
+            val reg = (instructions[retryIndex] as OneRegisterInstruction).registerA
+            it.method.replaceInstruction(retryIndex, "const-string v$reg, \"com.google.android.gms.maps_core_dynamite\"")
+        }
+
         // 4) FORCE THE VTM RENDERER (zq.bmpaywgdk, v1.2.3).
         // v1.2.2 still failed on device, and the reason is now
         // visible in the binaries, not the loader: MicroG-RE's
