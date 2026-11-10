@@ -1,3 +1,9 @@
+## [1.0.5](https://github.com/sabbirdj/viper-patches/compare/v1.0.4...v1.0.5) (2026-11-10)
+
+### 🐛 Bug Fixes
+
+* pin SAI fingerprints to their defining class and method ([47a7ebd](https://github.com/sabbirdj/viper-patches/commit/47a7ebddd3069f69eccc37616075208ed4b90181))
+
 ## [1.0.4](https://github.com/sabbirdj/viper-patches/compare/v1.0.3...v1.0.4) (2026-11-10)
 
 ### 🐛 Bug Fixes
