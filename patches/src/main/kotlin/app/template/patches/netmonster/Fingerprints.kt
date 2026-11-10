@@ -107,17 +107,21 @@ object NetMonsterCardFingerprint : Fingerprint(
 /**
  * muov.emit — computes the premium expiry date (cpysz.bmpaywgdk). It
  * collects the expiry dates of active subscriptions, takes the max with
- * Lqqlbfq.pzkxkxo (max-or-null), and emits it. With no active subs the
- * max is null, so the card's expiry is null — and the card renderer
- * (byjcq.cztaxulh) only hides the PURCHASE button when the expiry is
- * non-null (if-eqz p0, :cond_d -> fkvgubg renders PURCHASE; the
- * non-null path dereferences p0, so the branch cannot just be inverted).
+ * Lqqlbfq.pzkxkxo (max-or-null), and emits it via Ltiedq.emit. With no
+ * active subs the max is null, so the card's expiry is null — and the
+ * card renderer (byjcq.cztaxulh) only hides the PURCHASE button when
+ * the expiry is non-null (if-eqz p0, :cond_d -> fkvgubg renders
+ * PURCHASE; the non-null path dereferences p0, so that branch cannot
+ * just be inverted).
  *
- * The patch replaces the pzkxkxo call with OffsetDateTime.now(), so the
- * emitted expiry is always a real (non-null) date and the PURCHASE
- * button is hidden. Both are invoke-static (3 code units), so it is a
- * same-size swap. OffsetDateTime implements Comparable and the result is
- * passed on as an Object, so the type change is safe.
+ * v1.1.1 replaced pzkxkxo with OffsetDateTime.now(), which gave a real
+ * (non-null) expiry — but it showed as "today", so the card read
+ * "Active till <today>". v1.1.2 instead inserts a fixed far-future
+ * date (2099-12-31) just before the Ltiedq.emit call, so the card
+ * reads "Active till 2099". The emit call is NOT a branch target
+ * (nothing jumps to it; it is only reached by falling through from
+ * the preceding iput), so inserting before it is safe — the SAI
+ * lesson about addInstructions only applies before branch targets.
  */
 object NetMonsterExpiryFingerprint : Fingerprint(
     definingClass = "Lmuov;",
@@ -130,6 +134,12 @@ object NetMonsterExpiryFingerprint : Fingerprint(
             name = "pzkxkxo",
             parameters = listOf("Ljava/util/ArrayList;"),
             returnType = "Ljava/lang/Comparable;",
+        ),
+        methodCall(
+            definingClass = "Ltiedq;",
+            name = "emit",
+            parameters = listOf("Ljava/lang/Object;", "Llnzwbdtfp;"),
+            returnType = "Ljava/lang/Object;",
         ),
     )
 )

@@ -1,5 +1,6 @@
 package app.template.patches.netmonster
 
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.patch
 import app.template.patches.shared.Constants.COMPATIBILITY_NETMONSTER
@@ -63,18 +64,26 @@ val netMonsterPremiumPatch = patch(
             it.method.replaceInstruction(constIndex, "const/4 v0, 0x1")
         }
 
-        // 3) muov.emit: force a real (non-null) premium expiry date so the
-        // card hides the PURCHASE button. Replace the max-or-null call
-        // `invoke-static {v0}, Lqqlbfq;->pzkxkxo(ArrayList)Comparable`
-        // with `invoke-static {}, OffsetDateTime.now()OffsetDateTime`.
-        // Both are invoke-static (3 code units), so it is a same-size
-        // swap; OffsetDateTime implements Comparable and the result is
-        // passed on as an Object, so the type change is safe.
+        // 3) muov.emit: force a far-future premium expiry date (2099)
+        // so the card hides the PURCHASE button and reads "Active till
+        // 2099". Insert a fixed 2099 date just before the Ltiedq.emit
+        // call, overwriting v0 (the max-or-null expiry, null when there
+        // are no active subs) with OffsetDateTime.parse("2099-12-31").
+        // The emit call is NOT a branch target (it is only reached by
+        // falling through from the preceding iput), so inserting before
+        // it is safe. The pzkxkxo call itself is left alone — its
+        // result is overwritten by the inserted parse.
+        // (instructionMatches[1] is the Ltiedq.emit call; [0] is the
+        // pzkxkxo call that identifies the method.)
         NetMonsterExpiryFingerprint.let {
-            val pzkxkxoIndex = it.instructionMatches[0].index
-            it.method.replaceInstruction(
-                pzkxkxoIndex,
-                "invoke-static {}, Ljava/time/OffsetDateTime;->now()Ljava/time/OffsetDateTime;"
+            val emitIndex = it.instructionMatches[1].index
+            it.method.addInstructions(
+                emitIndex,
+                """
+                    const-string v0, "2099-12-31T23:59:59Z"
+                    invoke-static {v0}, Ljava/time/OffsetDateTime;->parse(Ljava/lang/CharSequence;)Ljava/time/OffsetDateTime;
+                    move-result-object v0
+                """
             )
         }
     }
