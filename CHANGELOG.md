@@ -1,3 +1,9 @@
+## [1.2.2](https://github.com/sabbirdj/viper-patches/compare/v1.2.1...v1.2.2) (2026-11-10)
+
+### 🐛 Bug Fixes
+
+* **netmonster:** neutralise maps_dynamite retry so map always reaches MicroG-RE fallback ([bb22a1f](https://github.com/sabbirdj/viper-patches/commit/bb22a1f29860f62f8ecda9ab044b84fcfd75ac6d))
+
 ## [1.2.1](https://github.com/sabbirdj/viper-patches/compare/v1.2.0...v1.2.1) (2026-11-10)
 
 ### 🐛 Bug Fixes
