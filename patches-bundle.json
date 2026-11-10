@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-10T06:28:39",
-  "description": "## [1.0.7](https://github.com/sabbirdj/viper-patches/compare/v1.0.6...v1.0.7) (2026-11-10)\n\n### 🐛 Bug Fixes\n\n* access instructions via method.implementation (MutableMethod has no instructions property) ([ea95737](https://github.com/sabbirdj/viper-patches/commit/ea957375592bbf0fd8b65deaec55b603639b4025))\n* use replaceInstruction for fk0/dk0 so the forced boolean actually runs ([a3e6253](https://github.com/sabbirdj/viper-patches/commit/a3e6253c010afc7e32186cb9abbcd31fa12b5eb5))",
-  "download_url": "https://github.com/sabbirdj/viper-patches/releases/download/v1.0.7/patches-1.0.7.mpp",
+  "created_at": "2026-11-10T06:35:52",
+  "description": "## [1.0.8](https://github.com/sabbirdj/viper-patches/compare/v1.0.7...v1.0.8) (2026-11-10)\n\n### 🐛 Bug Fixes\n\n* use replaceInstruction for APKS Installer ads (same fix as SAI v1.0.7) ([e4dfa82](https://github.com/sabbirdj/viper-patches/commit/e4dfa82768e5c107f658b2b9520833f442b4dcc3))",
+  "download_url": "https://github.com/sabbirdj/viper-patches/releases/download/v1.0.8/patches-1.0.8.mpp",
   "signature_download_url": "",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "public_key": "cuROrKnLrUReZ0+MdIhMlATMBNn2CuSVkxhvjEkUFEU="
 }

@@ -1,3 +1,9 @@
+## [1.0.8](https://github.com/sabbirdj/viper-patches/compare/v1.0.7...v1.0.8) (2026-11-10)
+
+### 🐛 Bug Fixes
+
+* use replaceInstruction for APKS Installer ads (same fix as SAI v1.0.7) ([e4dfa82](https://github.com/sabbirdj/viper-patches/commit/e4dfa82768e5c107f658b2b9520833f442b4dcc3))
+
 ## [1.0.7](https://github.com/sabbirdj/viper-patches/compare/v1.0.6...v1.0.7) (2026-11-10)
 
 ### 🐛 Bug Fixes
