@@ -40,6 +40,9 @@ import app.morphe.patcher.methodCall
  *
  * The patch replaces the single `const/4 v0, 0x0` with `const/4 v0, 0x1`,
  * so the stored premium boolean is always TRUE once the profile loads.
+ * NOTE (v1.1.0): forcing wqffeyl alone did NOT hide the menu's PURCHASE
+ * button — the card reads a separate state object (cpysz), not wqffeyl.
+ * So v1.1.1 adds the two fingerprints below.
  */
 object NetMonsterPremiumFingerprint : Fingerprint(
     definingClass = "Ltzvqghas;",
@@ -58,6 +61,75 @@ object NetMonsterPremiumFingerprint : Fingerprint(
             name = "isInGracePeriod",
             parameters = listOf(),
             returnType = "Z",
+        ),
+    )
+)
+
+/**
+ * fajpup.invoke — the lambda that updates the premium card state (cpysz).
+ * The menu reads cpysz, never ojhg.wqffeyl, so this is the boolean that
+ * actually drives the card. Case :pswitch_7 (byte 0x15) sets
+ * cpysz.bvmpacozx = (active-subscription-count > 0):
+ *   invoke-virtual {p2}, Integer.intValue()I
+ *   if-lez p0, :cond_0        (count <= 0 -> :cond_0)
+ *   :goto_0  move v7, v0      (v0 is 1, set at invoke start)
+ *   :cond_0  const/4 v0, 0x0  (the ONLY const/4 v0, 0x0 in the file)
+ *   goto :goto_0
+ *   invoke-static {v3..v8}, cpysz.bmpaywgdk(..., v7, ..., mask 0x7)
+ *
+ * The patch replaces that single `const/4 v0, 0x0` with `const/4 v0, 0x1`,
+ * so bvmpacozx is always TRUE regardless of the subscription count.
+ * fajpup has only one invoke method; the bmpaywgdk methodCall filter
+ * confirms it is the cpysz-updating lambda.
+ */
+object NetMonsterCardFingerprint : Fingerprint(
+    definingClass = "Lfajpup;",
+    name = "invoke",
+    returnType = "Ljava/lang/Object;",
+    parameters = listOf("Ljava/lang/Object;", "Ljava/lang/Object;"),
+    filters = listOf(
+        methodCall(
+            definingClass = "Lcpysz;",
+            name = "bmpaywgdk",
+            parameters = listOf(
+                "Lcpysz;",
+                "Ljava/time/OffsetDateTime;",
+                "Ljava/lang/Integer;",
+                "Z",
+                "Z",
+                "I"
+            ),
+            returnType = "Lcpysz;",
+        ),
+    )
+)
+
+/**
+ * muov.emit — computes the premium expiry date (cpysz.bmpaywgdk). It
+ * collects the expiry dates of active subscriptions, takes the max with
+ * Lqqlbfq.pzkxkxo (max-or-null), and emits it. With no active subs the
+ * max is null, so the card's expiry is null — and the card renderer
+ * (byjcq.cztaxulh) only hides the PURCHASE button when the expiry is
+ * non-null (if-eqz p0, :cond_d -> fkvgubg renders PURCHASE; the
+ * non-null path dereferences p0, so the branch cannot just be inverted).
+ *
+ * The patch replaces the pzkxkxo call with OffsetDateTime.now(), so the
+ * emitted expiry is always a real (non-null) date and the PURCHASE
+ * button is hidden. Both are invoke-static (3 code units), so it is a
+ * same-size swap. OffsetDateTime implements Comparable and the result is
+ * passed on as an Object, so the type change is safe.
+ */
+object NetMonsterExpiryFingerprint : Fingerprint(
+    definingClass = "Lmuov;",
+    name = "emit",
+    returnType = "Ljava/lang/Object;",
+    parameters = listOf("Ljava/lang/Object;", "Llnzwbdtfp;"),
+    filters = listOf(
+        methodCall(
+            definingClass = "Lqqlbfq;",
+            name = "pzkxkxo",
+            parameters = listOf("Ljava/util/ArrayList;"),
+            returnType = "Ljava/lang/Comparable;",
         ),
     )
 )

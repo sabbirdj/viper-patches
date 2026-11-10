@@ -10,26 +10,30 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 val netMonsterPremiumPatch = patch(
     name = "Unlock NetMonster Premium",
-    description = "Activates NetMonster Premium and removes ads by forcing the local Adapty subscription check to true. Verified on NetMonster 5.3.1.",
+    description = "Activates NetMonster Premium and removes ads by forcing the local Adapty subscription checks to true and giving the premium card a real expiry date. Verified on NetMonster 5.3.1.",
     default = true
 ) {
     compatibleWith(COMPATIBILITY_NETMONSTER)
 
     execute {
-        // The app computes one "has premium" boolean from the Adapty
-        // subscription list in tzvqghas.emit and stores it in ojhg.wqffeyl
-        // (a MutableStateFlow<Boolean?>). That same boolean feeds the
-        // ads-suppression chain, so forcing it true activates premium AND
-        // suppresses ads. There is no separate ads gate to patch.
-        //
-        // The boolean starts FALSE (const/4 v0, 0x0) and is set TRUE
-        // (const/4 v0, 0x1) only if some subscription isActive() or
-        // isInGracePeriod(). Replace the single init const with one that
-        // sets it to 1 -- a 1-code-unit for 1-code-unit swap, so nothing
-        // shifts and no label is involved at all (the proven approach from
-        // the SAI and APKS Installer patches: replaceInstruction only,
-        // never addInstructions before a branch target).
-        //
+        // v1.1.0 taught us the premium state lives in TWO places, and
+        // forcing only one of them leaves the menu's PURCHASE button up:
+        //  - ojhg.wqffeyl (via tzvqghas.emit) drives ads suppression and
+        //    the features gated by ojhg.klnnokp.
+        //  - cpysz (via fajpup + muov) drives the menu's premium card.
+        //    Its boolean (bvmpacozx) comes from the active-subscription
+        //    count, and its expiry (bmpaywgdk) is the max expiry of active
+        //    subs — null when there are none. The card renderer
+        //    (byjcq.cztaxulh) only hides the PURCHASE button when the
+        //    expiry is non-null, and its non-null path dereferences the
+        //    expiry, so that branch cannot just be inverted.
+        // So this patch forces all three, each with the proven
+        // replaceInstruction approach (same-size, no offset shift, no
+        // label) — never addInstructions before a branch target.
+
+        // 1) tzvqghas.emit: force the "has premium" boolean stored in
+        // ojhg.wqffeyl to TRUE (ads suppression + klnnokp features).
+        // Replace the single `const/4 v0, 0x0` with `const/4 v0, 0x1`.
         // (MutableMethod has no `instructions` property; they live on its
         // implementation.)
         NetMonsterPremiumFingerprint.let {
@@ -42,6 +46,36 @@ val netMonsterPremiumPatch = patch(
             }
             require(constIndex >= 0) { "tzvqghas.emit: const/4 v0, 0x0 not found" }
             it.method.replaceInstruction(constIndex, "const/4 v0, 0x1")
+        }
+
+        // 2) fajpup.invoke (:pswitch_7): force the card's premium boolean
+        // cpysz.bvmpacozx to TRUE. Replace the single `const/4 v0, 0x0`
+        // (the only one in the whole file) with `const/4 v0, 0x1`.
+        NetMonsterCardFingerprint.let {
+            val instructions = it.method.implementation?.instructions
+                ?: error("fajpup.invoke: no implementation")
+            val constIndex = instructions.indexOfFirst { instr ->
+                instr.opcode == Opcode.CONST_4 &&
+                    instr is OneRegisterInstruction && instr.registerA == 0 &&
+                    instr is NarrowLiteralInstruction && instr.narrowLiteral == 0
+            }
+            require(constIndex >= 0) { "fajpup.invoke: const/4 v0, 0x0 not found" }
+            it.method.replaceInstruction(constIndex, "const/4 v0, 0x1")
+        }
+
+        // 3) muov.emit: force a real (non-null) premium expiry date so the
+        // card hides the PURCHASE button. Replace the max-or-null call
+        // `invoke-static {v0}, Lqqlbfq;->pzkxkxo(ArrayList)Comparable`
+        // with `invoke-static {}, OffsetDateTime.now()OffsetDateTime`.
+        // Both are invoke-static (3 code units), so it is a same-size
+        // swap; OffsetDateTime implements Comparable and the result is
+        // passed on as an Object, so the type change is safe.
+        NetMonsterExpiryFingerprint.let {
+            val pzkxkxoIndex = it.instructionMatches[0].index
+            it.method.replaceInstruction(
+                pzkxkxoIndex,
+                "invoke-static {}, Ljava/time/OffsetDateTime;->now()Ljava/time/OffsetDateTime;"
+            )
         }
     }
 }
