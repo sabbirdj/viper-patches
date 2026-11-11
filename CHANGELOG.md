@@ -1,3 +1,9 @@
+## [1.4.0](https://github.com/sabbirdj/viper-patches/compare/v1.3.0...v1.4.0) (2026-11-11)
+
+### ✨ New Features
+
+* **shohay:** add Spoof installer source (Play Store) patch ([8c62b9f](https://github.com/sabbirdj/viper-patches/commit/8c62b9faaaed2fe8d1ab801393c448a9209cfeb7))
+
 ## [1.3.0](https://github.com/sabbirdj/viper-patches/compare/v1.2.5...v1.3.0) (2026-11-11)
 
 ### ✨ New Features
