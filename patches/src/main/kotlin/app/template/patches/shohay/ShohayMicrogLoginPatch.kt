@@ -4,6 +4,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.morphe.patcher.patch.patch
 import app.template.patches.shared.Constants.COMPATIBILITY_SHOHAY
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -19,7 +20,7 @@ private const val GMS_PACKAGE = "com.google.android.gms"
  * and returns its (index, register). Returns null when not found.
  */
 private fun findConstString(
-    instructions: List<com.android.tools.smali.dexlib2.iface.Instruction>,
+    instructions: List<Instruction>,
     value: String,
 ): Pair<Int, Int>? {
     val index = instructions.indexOfFirst { instr ->
