@@ -1,3 +1,13 @@
+## [1.3.0](https://github.com/sabbirdj/viper-patches/compare/v1.2.5...v1.3.0) (2026-11-11)
+
+### ✨ New Features
+
+* **shohay:** add Morphe patches for Shohay Pregnancy Health 2.1.1 ([1f93b77](https://github.com/sabbirdj/viper-patches/commit/1f93b77a238f77ea4a7ff319af21f7701ba023a7))
+
+### 🐛 Bug Fixes
+
+* **shohay:** correct Instruction import path in login patch ([edf3873](https://github.com/sabbirdj/viper-patches/commit/edf3873d9a92b64dbdfb1e4d6e28a6b4b1fba170))
+
 ## [1.2.5](https://github.com/sabbirdj/viper-patches/compare/v1.2.4...v1.2.5) (2026-11-10)
 
 ### 🐛 Bug Fixes
