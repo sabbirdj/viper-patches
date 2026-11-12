@@ -52,31 +52,37 @@ val bdvpnPremiumPatch = patch(
         // 1) Lcl/g.H: force the BASIC-tier predicate (X >= 5) to true.
         // Replace the `const/4 p0, 0x0` at :cond_b with 0x1. H is the
         // gate in MainFragment/ServersFragment/VPNService for VIP servers.
+        // NOTE: p0 is a parameter register; in a static method with
+        // .registers 2 it is raw register v1, not v0. So do NOT pin the
+        // register -- find the single CONST_4 with literal 0 (the other
+        // consts are 0x5 and 0x1) and reuse whatever register it uses.
         BdvpnTierCheckHFingerprint.let {
             val instructions = it.method.implementation?.instructions
                 ?: error("cl/g.H: no implementation")
             val constIndex = instructions.indexOfFirst { instr ->
                 instr.opcode == Opcode.CONST_4 &&
-                    instr is OneRegisterInstruction && instr.registerA == 0 &&
                     instr is NarrowLiteralInstruction && instr.narrowLiteral == 0
             }
             require(constIndex >= 0) { "cl/g.H: const/4 p0, 0x0 not found" }
-            it.method.replaceInstruction(constIndex, "const/4 p0, 0x1")
+            val register = (instructions[constIndex] as OneRegisterInstruction).registerA
+            it.method.replaceInstruction(constIndex, "const/4 v$register, 0x1")
         }
 
         // 2) Lcl/g.I: force the FULL-tier predicate (X >= 100) to true.
         // Replace the `const/4 p0, 0x0` at :cond_c with 0x1. I gates the
         // full-feature paths in Settings, MainActivity and QuickConnect.
+        // Same register note as H: p0 is raw v1 here, so find the single
+        // CONST_4 with literal 0 and reuse its register.
         BdvpnTierCheckIFingerprint.let {
             val instructions = it.method.implementation?.instructions
                 ?: error("cl/g.I: no implementation")
             val constIndex = instructions.indexOfFirst { instr ->
                 instr.opcode == Opcode.CONST_4 &&
-                    instr is OneRegisterInstruction && instr.registerA == 0 &&
                     instr is NarrowLiteralInstruction && instr.narrowLiteral == 0
             }
             require(constIndex >= 0) { "cl/g.I: const/4 p0, 0x0 not found" }
-            it.method.replaceInstruction(constIndex, "const/4 p0, 0x1")
+            val register = (instructions[constIndex] as OneRegisterInstruction).registerA
+            it.method.replaceInstruction(constIndex, "const/4 v$register, 0x1")
         }
 
         // 3) Ll8/q.onQueryPurchasesResponse: force the ads flag true.
