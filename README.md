@@ -19,7 +19,7 @@ Click the button below, or manually add this repo url to Morphe Manager: https:/
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.4.0](https://github.com/sabbirdj/viper-patches/releases/tag/v1.4.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;6 patches total
+> **[v1.5.0](https://github.com/sabbirdj/viper-patches/releases/tag/v1.5.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;8 patches total
 <details open>
 <summary>📦 Shohay Pregnancy Health&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
@@ -54,6 +54,24 @@ Click the button below, or manually add this repo url to Morphe Manager: https:/
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
 | [Remove ads (APKS Installer)](#remove-ads-apks-installer) | Disables all ads by forcing the master ads flag MyApplication.m to false and making the ad initializer a no-op. Verified on APKS Installer 2.8-Google. |  |
+
+</details>
+
+<details open>
+<summary>📦 Bangladesh VPN&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<br>
+
+**Package name:** `com.banglatech.bangladeshvpn`
+
+**🎯 Supported versions:**
+
+| 67.26 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Spoof installer source (Play Store)](#spoof-installer-source-play-store) | Makes Bangladesh VPN appear installed from Google Play (com.android.vending) so a manually installed build does not hit 'not installed from Play Store' paths. Same logic as the Morphe universal 'Change installer source' patch. Verified on 67.26. |  |
+| [Unlock VIP](#unlock-vip) | Unlocks Bangladesh VPN VIP by forcing the local subscription tier to FULL in every place that reads it: the tier predicates (H/I), the Play Billing purchase callback, the tier deriver, and the persisted tier default. VIP servers connect and the premium section activates. No server change needed. Verified on 67.26. |  |
 
 </details>
 

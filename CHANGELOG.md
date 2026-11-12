@@ -1,3 +1,9 @@
+## [1.5.0](https://github.com/sabbirdj/viper-patches/compare/v1.4.0...v1.5.0) (2026-11-12)
+
+### ✨ New Features
+
+* add Bangladesh VPN VIP unlock patch ([3d3a2c1](https://github.com/sabbirdj/viper-patches/commit/3d3a2c1f28287b4c3cb2c7b5c99e2c340c562c38))
+
 ## [1.4.0](https://github.com/sabbirdj/viper-patches/compare/v1.3.0...v1.4.0) (2026-11-11)
 
 ### ✨ New Features
