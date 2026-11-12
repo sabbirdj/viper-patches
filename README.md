@@ -7,6 +7,7 @@ Morphe patches for apps I like.
 - **Unlock SAI Premium** — activates SAI Premium (com.mtv.sai 2.4.3) by forcing the local RevenueCat entitlement check to true in all three places that read it.
 - **Remove ads (APKS Installer)** — disables all ads in APKS Installer (com.inwepo.apkinstaller 2.8-Google) by forcing the master ads flag off and making the ad initializer a no-op.
 - **Shohay Pregnancy Health** (health.shohay.pregnancy 2.1.1) — four patches that work together: **MicroG RE Google Sign-In** redirects Google login to MicroG RE, **MicroG signature spoof** adds the original Play signature to the manifest so MicroG's OAuth is accepted, **Unlock Premium** unlocks all weekly premium videos (weeks 1–42), and **Spoof installer source (Play Store)** makes the app appear installed from Google Play so a manually installed build does not hit "not installed from Play Store" paths.
+- **Bangladesh VPN** (com.banglatech.bangladeshvpn 67.26) — two patches that work together: **Unlock VIP** forces the local subscription tier to FULL so VIP servers connect and the premium section activates, and **Spoof installer source (Play Store)** makes the app appear installed from Google Play so a manually installed build does not hit "not installed from Play Store" paths.
 
 ### How to use these patches
 
