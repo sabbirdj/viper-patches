@@ -4,7 +4,7 @@ patches {
     about {
         name = "Viper Patches"
         description = "Patches for apps I like: SAI Premium unlock, APKS Installer ad removal, Shohay Pregnancy Health (MicroG RE Google Sign-In + Premium unlock), and Bangladesh VPN VIP unlock."
-        source = "git@github.com:viper/morphe-patches.git"
+        source = "git@github.com:sabbirdj/viper-patches.git"
         author = "Viper"
         contact = "na"
         website = "na"

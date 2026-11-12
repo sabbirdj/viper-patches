@@ -11,9 +11,9 @@ Morphe patches for apps I like.
 
 ### How to use these patches
 
-Click the button below, or manually add this repo url to Morphe Manager: https://github.com/viper/morphe-patches
+Click the button below, or manually add this repo url to Morphe Manager: https://github.com/sabbirdj/viper-patches
 
-<a href="https://morphe.software/add-source?github=viper/morphe-patches">
+<a href="https://morphe.software/add-source?github=sabbirdj/viper-patches">
   <img src=".github/assets/add-to-morphe.svg" alt="Add to Morphe" height="48">
 </a>
 
