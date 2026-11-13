@@ -73,4 +73,25 @@ object Constants {
             )
         )
     )
+
+    val COMPATIBILITY_ZALMILTD_VPN = Compatibility(
+        name = "Bangladesh VPN (Zalmiltd)",
+        packageName = "bdvpn.zalmiltd.vpn",
+        // Distributed as a split bundle (.apks): base + arm64 + en + xxhdpi.
+        apkFileType = ApkFileType.APKM,
+        appIconColor = 0x00A651,
+        targets = listOf(
+            // Version the Full Premium patch was developed and verified
+            // against (hand-built .apks, JADX + Apktool re-decode and
+            // apksigner verify 2026-11-14). Different app from
+            // COMPATIBILITY_BDVPN above: different package, version and
+            // obfuscated class names.
+            AppTarget(
+                version = "4.1",
+                versionCodes = mapOf(
+                    SupportedAbi.ARM64_V8A to 41
+                )
+            )
+        )
+    )
 }

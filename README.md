@@ -8,6 +8,7 @@ Morphe patches for apps I like.
 - **Remove ads (APKS Installer)** — disables all ads in APKS Installer (com.inwepo.apkinstaller 2.8-Google) by forcing the master ads flag off and making the ad initializer a no-op.
 - **Shohay Pregnancy Health** (health.shohay.pregnancy 2.1.1) — four patches that work together: **MicroG RE Google Sign-In** redirects Google login to MicroG RE, **MicroG signature spoof** adds the original Play signature to the manifest so MicroG's OAuth is accepted, **Unlock Premium** unlocks all weekly premium videos (weeks 1–42), and **Spoof installer source (Play Store)** makes the app appear installed from Google Play so a manually installed build does not hit "not installed from Play Store" paths.
 - **Bangladesh VPN** (com.banglatech.bangladeshvpn 67.26) — two patches that work together: **Unlock VIP** forces the local subscription tier to FULL so VIP servers connect and the premium section activates, and **Spoof installer source (Play Store)** makes the app appear installed from Google Play so a manually installed build does not hit "not installed from Play Store" paths.
+- **Bangladesh VPN (Zalmiltd)** (bdvpn.zalmiltd.vpn 4.1) — **Unlock Full Premium** forces the local subscription tier to FULL in every place that reads it (tier predicates, Play Billing refresh, persisted tier default, free-time limit), so VIP servers connect, ads stay off and the connection is never cut for VIP time running out. A different app from the Bangladesh VPN above: different package, version and obfuscated class names.
 
 ### How to use these patches
 
