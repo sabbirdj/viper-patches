@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "patches": [
     {
       "name": "MicroG RE Google Sign-In",
@@ -135,6 +135,35 @@
               "version": "2.1.1",
               "versionCodes": {
                 "ARM64_V8A": 179
+              },
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Unlock Full Premium",
+      "description": "Unlocks Bangladesh VPN (Zalmiltd) Full Premium by forcing the local subscription tier to FULL in every place that reads it: the tier predicates (kh3.d/f), the Play Billing refresh, the persisted tier default, and the free-time limit. VIP servers connect, ads stay off and the connection is never cut for VIP time running out. No server change needed. Verified on 4.1.",
+      "default": true,
+      "category": null,
+      "compatiblePackages": [
+        {
+          "packageName": "bdvpn.zalmiltd.vpn",
+          "name": "Bangladesh VPN (Zalmiltd)",
+          "description": null,
+          "apkFileType": "APKM",
+          "appIconColor": "#00A651",
+          "signatures": null,
+          "formFactor": "MOBILE",
+          "targets": [
+            {
+              "version": "4.1",
+              "versionCodes": {
+                "ARM64_V8A": 41
               },
               "isExperimental": false,
               "minSdk": null,
