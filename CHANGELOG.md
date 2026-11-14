@@ -1,3 +1,9 @@
+## [1.6.1](https://github.com/sabbirdj/viper-patches/compare/v1.6.0...v1.6.1) (2026-11-14)
+
+### 🐛 Bug Fixes
+
+* remove Bangladesh VPN (Zalmiltd) Unlock Full Premium patch ([9519781](https://github.com/sabbirdj/viper-patches/commit/9519781e287e465d306dab03bfd9ee8821cf3e8e))
+
 ## [1.6.0](https://github.com/sabbirdj/viper-patches/compare/v1.5.1...v1.6.0) (2026-11-13)
 
 ### ✨ New Features

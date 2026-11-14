@@ -20,7 +20,7 @@ Click the button below, or manually add this repo url to Morphe Manager: https:/
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.6.0](https://github.com/sabbirdj/viper-patches/releases/tag/v1.6.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;9 patches total
+> **[v1.6.1](https://github.com/sabbirdj/viper-patches/releases/tag/v1.6.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;8 patches total
 <details open>
 <summary>📦 Shohay Pregnancy Health&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
@@ -73,23 +73,6 @@ Click the button below, or manually add this repo url to Morphe Manager: https:/
 |----------|----------------|-----------|
 | [Spoof installer source (Play Store)](#spoof-installer-source-play-store) | Makes Bangladesh VPN appear installed from Google Play (com.android.vending) so a manually installed build does not hit 'not installed from Play Store' paths. Same logic as the Morphe universal 'Change installer source' patch. Verified on 67.26. |  |
 | [Unlock VIP](#unlock-vip) | Unlocks Bangladesh VPN VIP by forcing the local subscription tier to FULL in every place that reads it: the tier predicates (H/I), the Play Billing purchase callback, the tier deriver, and the persisted tier default. VIP servers connect and the premium section activates. No server change needed. Verified on 67.26. |  |
-
-</details>
-
-<details open>
-<summary>📦 Bangladesh VPN (Zalmiltd)&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
-<br>
-
-**Package name:** `bdvpn.zalmiltd.vpn`
-
-**🎯 Supported versions:**
-
-| 4.1 |
-| :---: |
-
-| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
-|----------|----------------|-----------|
-| [Unlock Full Premium](#unlock-full-premium) | Unlocks Bangladesh VPN (Zalmiltd) Full Premium by forcing the local subscription tier to FULL in every place that reads it: the tier predicates (kh3.d/f), the Play Billing refresh, the persisted tier default, and the free-time limit. VIP servers connect, ads stay off and the connection is never cut for VIP time running out. No server change needed. Verified on 4.1. |  |
 
 </details>
 
