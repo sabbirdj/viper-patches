@@ -32,7 +32,21 @@ tasks {
     }
 
     // Used by gradle-semantic-release-plugin.
+    //
+    // buildAndroid MUST stay a dependency: the Morphe plugin wires
+    // `publish.dependsOn(buildAndroid)` so that the DEX merge and the
+    // Ed25519 signing of the .mpp happen at all. Calling
+    // `dependsOn("generatePatchesList")` on its own replaced that
+    // dependency, which silently shipped an unsigned, jar-only .mpp.
+    //
+    // generatePatchesList reads the finished .mpp, so it has to run after
+    // buildAndroid, not merely alongside it.
     publish {
+        dependsOn("buildAndroid")
         dependsOn("generatePatchesList")
+    }
+
+    named("generatePatchesList") {
+        mustRunAfter("buildAndroid")
     }
 }
