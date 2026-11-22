@@ -1,3 +1,9 @@
+## [1.7.0](https://github.com/sabbirdj/viper-patches/compare/v1.6.1...v1.7.0) (2026-11-22)
+
+### ✨ New Features
+
+* **amberit:** add Disable location gate patch ([1073625](https://github.com/sabbirdj/viper-patches/commit/10736255743441f5e85d7842f3904628ba2a6464))
+
 ## [1.6.1](https://github.com/sabbirdj/viper-patches/compare/v1.6.0...v1.6.1) (2026-11-14)
 
 ### 🐛 Bug Fixes

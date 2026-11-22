@@ -21,7 +21,24 @@ Click the button below, or manually add this repo url to Morphe Manager: https:/
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.6.1](https://github.com/sabbirdj/viper-patches/releases/tag/v1.6.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;8 patches total
+> **[v1.7.0](https://github.com/sabbirdj/viper-patches/releases/tag/v1.7.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;9 patches total
+<details open>
+<summary>📦 AmberIT&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+**Package name:** `com.amberit.dialer`
+
+**🎯 Supported versions:**
+
+| 1.3.2 |
+| :---: |
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Disable location gate](#disable-location-gate) | Stops AmberIT from requiring device location at startup. Forces hb4.f() ("should show GPS restriction dialog") to false, which suppresses the GPS alert and the blocking location-permission dialog app-wide, and makes the chat share-location permission check return true. The country allow-list itself is server-side and is not affected. Verified on AmberIT 1.3.2 (versionCode 103021). |  |
+
+</details>
+
 <details open>
 <summary>📦 Shohay Pregnancy Health&nbsp;&nbsp;•&nbsp;&nbsp;4 patches</summary>
 <br>
