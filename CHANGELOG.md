@@ -1,3 +1,9 @@
+## [1.7.1](https://github.com/sabbirdj/viper-patches/compare/v1.7.0...v1.7.1) (2026-11-22)
+
+### 🐛 Bug Fixes
+
+* **signing:** regenerate morphe-signing.pub for MORPHE_SIGNING_KEY ([e6e38c2](https://github.com/sabbirdj/viper-patches/commit/e6e38c2b1379b44e8857989613eddd3d5472362d))
+
 ## [1.7.0](https://github.com/sabbirdj/viper-patches/compare/v1.6.1...v1.7.0) (2026-11-22)
 
 ### ✨ New Features
