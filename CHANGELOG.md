@@ -1,3 +1,9 @@
+## [1.7.2](https://github.com/sabbirdj/viper-patches/compare/v1.7.1...v1.7.2) (2026-11-22)
+
+### 🐛 Bug Fixes
+
+* **signing:** restore original morphe-signing.pub ([059a6a8](https://github.com/sabbirdj/viper-patches/commit/059a6a8a52b31281a0d89ab50a93476231976b93))
+
 ## [1.7.1](https://github.com/sabbirdj/viper-patches/compare/v1.7.0...v1.7.1) (2026-11-22)
 
 ### 🐛 Bug Fixes

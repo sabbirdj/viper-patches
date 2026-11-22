@@ -1,8 +1,8 @@
 {
-  "created_at": "2026-11-22T02:21:39",
-  "description": "## [1.7.1](https://github.com/sabbirdj/viper-patches/compare/v1.7.0...v1.7.1) (2026-11-22)\n\n### 🐛 Bug Fixes\n\n* **signing:** regenerate morphe-signing.pub for MORPHE_SIGNING_KEY ([e6e38c2](https://github.com/sabbirdj/viper-patches/commit/e6e38c2b1379b44e8857989613eddd3d5472362d))",
-  "download_url": "https://github.com/sabbirdj/viper-patches/releases/download/v1.7.1/patches-1.7.1.mpp",
+  "created_at": "2026-11-22T02:25:53",
+  "description": "## [1.7.2](https://github.com/sabbirdj/viper-patches/compare/v1.7.1...v1.7.2) (2026-11-22)\n\n### 🐛 Bug Fixes\n\n* **signing:** restore original morphe-signing.pub ([059a6a8](https://github.com/sabbirdj/viper-patches/commit/059a6a8a52b31281a0d89ab50a93476231976b93))",
+  "download_url": "https://github.com/sabbirdj/viper-patches/releases/download/v1.7.2/patches-1.7.2.mpp",
   "signature_download_url": "",
-  "version": "1.7.1",
-  "public_key": "35C6H06ZiJb7gJGLVxL2VGmySmq58Sai01/SQFCbDF4="
+  "version": "1.7.2",
+  "public_key": "cuROrKnLrUReZ0+MdIhMlATMBNn2CuSVkxhvjEkUFEU="
 }
