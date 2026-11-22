@@ -1,3 +1,9 @@
+## [1.7.4](https://github.com/sabbirdj/viper-patches/compare/v1.7.3...v1.7.4) (2026-11-22)
+
+### 🐛 Bug Fixes
+
+* **signing:** set MORPHE_SIGNING_KEY so releases are signed ([663a6a7](https://github.com/sabbirdj/viper-patches/commit/663a6a7fc006661ef031027f85a3e661d9e5a6aa))
+
 ## [1.7.3](https://github.com/sabbirdj/viper-patches/compare/v1.7.2...v1.7.3) (2026-11-22)
 
 ### 🐛 Bug Fixes
