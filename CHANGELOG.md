@@ -1,3 +1,9 @@
+## [1.7.5](https://github.com/sabbirdj/viper-patches/compare/v1.7.4...v1.7.5) (2026-11-22)
+
+### 🐛 Bug Fixes
+
+* **build:** run buildAndroid so releases are DEX-merged and signed ([c3ae6f2](https://github.com/sabbirdj/viper-patches/commit/c3ae6f226816debef578cfb9ccd9b01f00e618f8))
+
 ## [1.7.4](https://github.com/sabbirdj/viper-patches/compare/v1.7.3...v1.7.4) (2026-11-22)
 
 ### 🐛 Bug Fixes
