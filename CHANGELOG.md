@@ -1,3 +1,9 @@
+## [1.7.3](https://github.com/sabbirdj/viper-patches/compare/v1.7.2...v1.7.3) (2026-11-22)
+
+### 🐛 Bug Fixes
+
+* **release:** make .releaserc valid JSON and drop the dev branch ([eae22d3](https://github.com/sabbirdj/viper-patches/commit/eae22d37c089e381eadc67981e0dff6eab1db030))
+
 ## [1.7.2](https://github.com/sabbirdj/viper-patches/compare/v1.7.1...v1.7.2) (2026-11-22)
 
 ### 🐛 Bug Fixes
