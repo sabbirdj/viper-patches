@@ -39,9 +39,10 @@ tasks {
     // `dependsOn("generatePatchesList")` on its own replaced that
     // dependency, which silently shipped an unsigned, jar-only .mpp.
     //
-    // generatePatchesList reads the finished .mpp, so it has to run after
-    // buildAndroid, not merely alongside it.
-    publish {
+    // NOTE: inside `tasks { }`, `publish { }` is the TaskContainer helper and
+    // its receiver is NOT the existing `publish` task, so the dependency was
+    // silently dropped. Configure the named task instead.
+    named("publish") {
         dependsOn("buildAndroid")
         dependsOn("generatePatchesList")
     }
