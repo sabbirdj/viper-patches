@@ -1,3 +1,9 @@
+## [1.7.6](https://github.com/sabbirdj/viper-patches/compare/v1.7.5...v1.7.6) (2026-11-22)
+
+### 🐛 Bug Fixes
+
+* **build:** attach buildAndroid to the real publish task ([57e6d56](https://github.com/sabbirdj/viper-patches/commit/57e6d568b4ca266f609935db8f42c5e56059a776))
+
 ## [1.7.5](https://github.com/sabbirdj/viper-patches/compare/v1.7.4...v1.7.5) (2026-11-22)
 
 ### 🐛 Bug Fixes
